@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    struct
+    struct player
     {
         /* data */
         char name[20];
