@@ -10,7 +10,7 @@ typedef struct node
 /*Function protoype*/
 void append(node **q, int num);
 void addatbeg(node **q, int num);
-
+void display(node *q);
 int main(void)
 {
     node *p = NULL;
@@ -110,6 +110,25 @@ void addafter(node *q, int loc, int num)
         r->link = temp->link;/*set member of r to point to the node temp was originally pointing at*/
         temp->link = r;
     }
+    return;
+}
+/**
+ * dispay - displays the content of the linked list
+ * @q: pointer that stores an address of a variable
+ * Return: void
+ */
+void display(node *q)
+{
+    
+    printf("\n");
+
+    /*traverse the whole list*/
+    while(q != NULL)
+    {
+        printf("%d\n", q->data);
+        q = q->link;
+    }
+    printf("\n");
     return;
 }
 
