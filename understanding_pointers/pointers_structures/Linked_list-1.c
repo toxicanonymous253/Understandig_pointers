@@ -140,7 +140,7 @@ void display(node *q)
 
 /**
  * count - this function counts the number of lists in the linked list
- * @q: th
+ * @q: the head of the node
  */
 int count(node *q)
 {
@@ -185,5 +185,6 @@ void delete(node **q, int num)
             temp = temp->link;/*go to the next node*/
         }
     }
+    /*if not found*/
     printf("Elemnt %d not found\n", num);
 }

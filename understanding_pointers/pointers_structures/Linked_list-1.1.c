@@ -11,6 +11,8 @@ typedef struct node
 void append(node **q, int num);
 void addatbeg(node **q, int num);
 void display(node *q);
+int count(node *q);
+void delete(node **q, int num);
 int main(void)
 {
     node *p = NULL;
@@ -131,5 +133,56 @@ void display(node *q)
     printf("\n");
     return;
 }
+/**
+ * count - this function counts the number of lists in the linked list
+ * @q: the head of the node
+ */
 
+int count(node *q)
+{
+    int c = 0;
 
+    while (q != NULL)
+    {
+        q = q->link;
+        c++;
+    }
+
+    return (c);
+}
+
+void delete(node **q, int num)
+{
+    node *old, *temp;
+    temp = *q;
+
+    while(temp != NULL)
+    {
+        if(temp->data == num)
+        {
+        /*If the number to be removed is in the first node*/
+            if(temp == *q)
+            {
+                *q = temp->link;
+                free(temp);
+                return;
+            }
+            /*Deletes the intermidiate node in the linked list*/
+            else{
+                old->link = temp->link;
+                free(temp);
+                return;
+            }
+        }
+        /*Trevarse the whold lis*/
+        else
+        {
+            old = temp;
+            temp = temp->link;
+        }
+
+    }
+    /*if not found*/
+    printf("Element %d not found", num);
+    return;
+}
